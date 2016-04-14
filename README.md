@@ -9,7 +9,7 @@ Description
 -----------
 C++ framework for the evaluation of Pairwise 3D registration algorithms that follows the methodology proposed in:
 
-Petrelli A., Di Stefano L., "Pairwise registration by local orientation cues", Computer Graphics Forum, 2015. 
+[Petrelli A., Di Stefano L., "Pairwise registration by local orientation cues", Computer Graphics Forum, 2015.](http://onlinelibrary.wiley.com/doi/10.1111/cgf.12732/full)
 
 Webpage
 -----------
