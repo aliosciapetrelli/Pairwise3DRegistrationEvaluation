@@ -17,9 +17,9 @@ http://www.vision.deis.unibo.it/research/78-cvlab/108-pairwiseregistrationbenchm
 
 Usage
 -----------
-To evaluate an algorithm, the user has to implement the *PairwiseRegistration()* method of the *IPairwise3DRegistrationAlgorithm* interface that takes two partial views (Vi,Vj) as parameters and returns the rigid motion that aligns Vj to Vi.  
+To evaluate an algorithm, the user has to implement the *PairwiseRegistration()* method of the *IPairwise3DRegistrationAlgorithm* interface. The method takes two partial views (Vi,Vj) as parameters and returns the rigid motion that aligns Vj to Vi.  
 
-Then, the evaluation is performed by the *Pairwise3DRegistrationBenchmark* component. Once the dataset and the algorithm under evaluation have been set, the *Evaluate()* method attempts to estimate the rigid motions that align all the view pairs and, finally computes the figure of merits.
+Then, the evaluation is performed by the *Pairwise3DRegistrationBenchmark* component. Once the dataset and the algorithm under evaluation have been set, the *Evaluate()* method attempts to estimate the rigid motions that align all the view pairs and, finally, computes the figure of merits.
 
 An example can be found in [Pairwise3DRegistrationEvaluation_testmain.cpp](https://github.com/aliosciapetrelli/Pairwise3DRegistrationEvaluation/blob/master/Pairwise3DRegistrationEvaluation_testmain.cpp)
 
