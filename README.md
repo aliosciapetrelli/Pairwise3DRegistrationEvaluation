@@ -26,6 +26,7 @@ An example can be found in [Pairwise3DRegistrationEvaluation_testmain.cpp](https
 Dependencies
 -----------
 The framework requires [VTK](http://www.vtk.org/) and [Generalized-ICP](http://www.robots.ox.ac.uk/~avsegal/generalized_icp.html).
+
 Note: Instead of the Generalized ICP, it is possible to apply an internal implementation of the standard ICP by uncommenting the line *#define GICP_IS_NOT_INCLUDED* in [Pairwise3DRegistrationEvaluation_FineRegistration.h](https://github.com/aliosciapetrelli/Pairwise3DRegistrationEvaluation/blob/master/Pairwise3DRegistrationEvaluation_FineRegistration.h).
 
 The code has been tested with VTK 5.10 on Windows 7 and Microsoft Visual Studio 2010.
