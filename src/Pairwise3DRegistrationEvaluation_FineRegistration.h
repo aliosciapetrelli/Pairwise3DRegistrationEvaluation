@@ -7,6 +7,8 @@
 #include "vtkTransform.h"
 #include "vtkPolyData.h"
 
+//#define GICP_IS_NOT_INCLUDED
+
 namespace Pairwise3DRegistrationEvaluation
 {
 	class PairwiseRegistration

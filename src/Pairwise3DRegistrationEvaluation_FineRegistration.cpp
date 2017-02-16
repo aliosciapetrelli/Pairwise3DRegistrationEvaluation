@@ -3,7 +3,7 @@
 #include "vtkMath.h"
 #include <stdexcept>
 
-//#define GICP_IS_NOT_INCLUDED
+
 
 #ifndef GICP_IS_NOT_INCLUDED
 	#include "gicp.h"

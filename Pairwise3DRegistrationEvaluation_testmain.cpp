@@ -68,7 +68,7 @@ class TestPairwise3DRegistrationAlgorithm : public Pairwise3DRegistrationEvaluat
 int main(int argc, char** argv)
 {
 	string absDatasetPath = argv[1];	//folder containing the partial views to register
-	string absResultFilename = argv[2];	//filename of the output csv file reporting the result of the registration
+	string absResultFilename = argv[2];	//output csv file reporting the result of the registration
 
 	//Instantiate the wrapper of the algorithm to test
 	Pairwise3DRegistrationEvaluation::IPairwise3DRegistrationAlgorithm* ptrTestAlgorithm = new TestPairwise3DRegistrationAlgorithm();
