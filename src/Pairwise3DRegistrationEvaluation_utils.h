@@ -38,7 +38,7 @@ namespace Pairwise3DRegistrationEvaluation
 	class CpuTimeProfiler
 	{
 	protected:
-#if defined (_MSC_VER) && _MSC_VER <= 1700  // 1400 == VC++ 8.0, 1600 == VC++ 10.0, 1700 == VC++ 11.0
+#if defined (_MSC_VER)
 		LARGE_INTEGER m_frequency;
 
 		ULARGE_INTEGER m_actualTime;

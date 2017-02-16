@@ -2229,7 +2229,7 @@ Pairwise3DRegistrationEvaluation::CpuTimeProfiler::CpuTimeProfiler(clockid_t clk
 Pairwise3DRegistrationEvaluation::CpuTimeProfiler::CpuTimeProfiler()
 #endif
 {
-	#if defined (_MSC_VER) && _MSC_VER <= 1700  // 1400 == VC++ 8.0, 1600 == VC++ 10.0, 1700 == VC++ 11.0
+	#if defined (_MSC_VER)
 		QueryPerformanceFrequency( &m_frequency );
 	#endif
 	GetActualTime();	
@@ -2237,7 +2237,7 @@ Pairwise3DRegistrationEvaluation::CpuTimeProfiler::CpuTimeProfiler()
 
 void Pairwise3DRegistrationEvaluation::CpuTimeProfiler::GetActualTime()
 {
-	#if defined (_MSC_VER) && _MSC_VER <= 1700  // 1400 == VC++ 8.0, 1600 == VC++ 10.0, 1700 == VC++ 11.0
+	#if defined (_MSC_VER)
 		GetProcessTimes(GetCurrentProcess(), &m_actualCreateTime, &m_actualExitTime, &m_actualKernelTime, &m_actualUserTime);
 
 		ULARGE_INTEGER actualkernel, actualUser;
@@ -2265,7 +2265,7 @@ double Pairwise3DRegistrationEvaluation::CpuTimeProfiler::GetElapsedMins()
 
 double Pairwise3DRegistrationEvaluation::CpuTimeProfiler::GetElapsedSecs()
 {
-	#if defined (_MSC_VER) && _MSC_VER <= 1700  // 1400 == VC++ 8.0, 1600 == VC++ 10.0, 1700 == VC++ 11.0
+	#if defined (_MSC_VER)
 		FILETIME stopUserTime, stopKernelTime, stopCreateTime, stopExitTime;
 		GetProcessTimes(GetCurrentProcess(), &stopCreateTime, &stopExitTime, &stopKernelTime, &stopUserTime);
 
@@ -2289,7 +2289,7 @@ double Pairwise3DRegistrationEvaluation::CpuTimeProfiler::GetElapsedSecs()
 
 double Pairwise3DRegistrationEvaluation::CpuTimeProfiler::GetElapsedMilli()
 {
-	#if defined (_MSC_VER) && _MSC_VER <= 1700  // 1400 == VC++ 8.0, 1600 == VC++ 10.0, 1700 == VC++ 11.0
+	#if defined (_MSC_VER)
 		FILETIME stopUserTime, stopKernelTime, stopCreateTime, stopExitTime;
 		GetProcessTimes(GetCurrentProcess(), &stopCreateTime, &stopExitTime, &stopKernelTime, &stopUserTime);
 
