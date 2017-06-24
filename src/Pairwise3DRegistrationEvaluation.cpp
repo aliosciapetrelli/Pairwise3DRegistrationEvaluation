@@ -126,7 +126,7 @@ void Pairwise3DRegistrationEvaluation::Pairwise3DRegistrationBenchmark::Evaluate
 		int idx_trg = m_vViewPairs[pa].first;
 		int idx_ref = m_vViewPairs[pa].second;
 
-		cout << "Align pair: " << pa << " / " <<  m_vViewPairs.size() << "\ttrg: " << idx_trg << "\tref: " << idx_ref << " ... ";
+		cout << "Align pair: " << pa << " / " <<  m_vViewPairs.size() << "\ttrg: " << idx_trg << "\tref: " << idx_ref << " ... " << endl;
 
 		vtkPolyData* mesh_trg = NULL;
 		vtkPolyData* mesh_ref = NULL;

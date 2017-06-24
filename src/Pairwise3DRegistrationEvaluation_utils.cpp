@@ -40,6 +40,7 @@ using namespace std;
 #include "vtkMath.h"
 #include "vtkPointData.h"
 #include "vtkTriangle.h"
+#include <vtkVersion.h>
 
 
 bool Pairwise3DRegistrationEvaluation::ExistsDir(const string &directory)
@@ -97,8 +98,11 @@ vtkPolyData* Pairwise3DRegistrationEvaluation::Duplicate(vtkPolyData* source)
 void Pairwise3DRegistrationEvaluation::ApplyTransform(vtkPolyData *polyData, vtkAbstractTransform* transform)
 {
 	vtkTransformFilter* transformFilter = vtkTransformFilter::New();
-	//transformFilter->SetInputConnection(polyData->GetProducerPort());
+#if VTK_MAJOR_VERSION <= 5
 	transformFilter->SetInput(polyData);
+#else
+	transformFilter->SetInputData(polyData);
+#endif
 	transformFilter->SetTransform(transform);
 	transformFilter->Update();
 	polyData->ShallowCopy(transformFilter->GetPolyDataOutput());
@@ -635,7 +639,11 @@ bool Pairwise3DRegistrationEvaluation::WriteVtk(const std::string &absFileName, 
 	}
 
 	vtkPolyDataWriter* polydataWriter = vtkPolyDataWriter::New();
+#if VTK_MAJOR_VERSION <= 5
 	polydataWriter->SetInputConnection(polyData->GetProducerPort());
+#else
+	polydataWriter->SetInputData(polyData);
+#endif
 	if(fileTypeASCII)
 	{
 		polydataWriter->SetFileTypeToASCII();
@@ -1447,9 +1455,11 @@ void Pairwise3DRegistrationEvaluation::CalcMeshNormals(vtkPolyData *polyData, co
 		polydataNormals->SplittingOn();
 		polydataNormals->SetFeatureAngle(dFeatureAngle);
 	}
-	//vtkAlgorithmOutput* prova = polyData->GetProducerPort();
-	//polydataNormals->SetInputConnection(prova);
+#if VTK_MAJOR_VERSION <= 5
 	polydataNormals->SetInput(polyData);
+#else
+	polydataNormals->SetInputData(polyData);
+#endif
 	polydataNormals->ComputePointNormalsOn();
 	polydataNormals->AutoOrientNormalsOff();
 	polydataNormals->ConsistencyOff();
@@ -1485,7 +1495,11 @@ void Pairwise3DRegistrationEvaluation::CleanPolyData(vtkPolyData *polyData, cons
 	}
 
 	vtkCleanPolyData* cleanPolyData = vtkCleanPolyData::New();
+#if VTK_MAJOR_VERSION <= 5
 	cleanPolyData->SetInputConnection(polyData->GetProducerPort());
+#else
+	cleanPolyData->SetInputData(polyData);
+#endif
 	cleanPolyData->SetAbsoluteTolerance(tolerance);
 	cleanPolyData->SetPointMerging(mergePoints);
 	cleanPolyData->ToleranceIsAbsoluteOn();
