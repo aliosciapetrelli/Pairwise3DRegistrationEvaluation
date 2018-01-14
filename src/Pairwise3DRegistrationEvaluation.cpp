@@ -299,6 +299,8 @@ void Pairwise3DRegistrationEvaluation::Pairwise3DRegistrationBenchmark::Evaluate
 void Pairwise3DRegistrationEvaluation::Pairwise3DRegistrationBenchmark::PrintResults(const std::string &absCsvFileName, const int NRegistrations, const double RMSE, const double CPUTime_Tot)
 {
 	std::ofstream	outFile( absCsvFileName, std::ios_base::out );
+  std::locale defaultLocale ("");
+  outFile.imbue (defaultLocale);
 
 	if (!outFile.is_open() )
 	{
